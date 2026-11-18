@@ -1,16 +1,25 @@
 {
   "name": "Dwell Ministries",
   "short_name": "Dwell",
+  "description": "A Christ-centered online ministry for worship, prayer, discipleship, family, and community.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#050505",
+  "lang": "en-US",
+  "categories": [
+    "religion",
+    "lifestyle",
+    "social"
+  ],
   "icons": [
     {
       "src": "/assets/dwell-logo.png",
       "sizes": "any",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

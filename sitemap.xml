@@ -1,43 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dwellmin.online/</loc>
     <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://dwellmin.online/assets/dwell-logo.png</image:loc><image:title>Dwell Ministries</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/dwell-conference-logo-beige.webp</image:loc><image:title>Dwell Ministries Conference 2027</image:title></image:image>
   </url>
   <url>
     <loc>https://dwellmin.online/about.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://dwellmin.online/assets/wallace-erin-story.webp</image:loc><image:title>Pastor Wallace Ford and Executive Pastor Erin Ford</image:title></image:image>
   </url>
-  <url>
-    <loc>https://dwellmin.online/beliefs.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
+  <url><loc>https://dwellmin.online/beliefs.html</loc><lastmod>2026-11-18</lastmod></url>
   <url>
     <loc>https://dwellmin.online/leadership.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://dwellmin.online/assets/wallace-erin-leadership.webp</image:loc><image:title>Dwell Ministries pastoral leadership</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/felicia-woodard.webp</image:loc><image:title>Felicia Woodard</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/quotesha-lovett.webp</image:loc><image:title>Qu’Teasha Lovett</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/sametha-moten.webp</image:loc><image:title>Sametha Moten</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/daisy-ford.webp</image:loc><image:title>Evangelist Daisy Ford</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/keshia-lovett.webp</image:loc><image:title>Keshia Lovett</image:title></image:image>
+    <image:image><image:loc>https://dwellmin.online/assets/gabriella-ford.webp</image:loc><image:title>Gabriella Ford</image:title></image:image>
   </url>
-  <url>
-    <loc>https://dwellmin.online/giving.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
+  <url><loc>https://dwellmin.online/giving.html</loc><lastmod>2026-11-18</lastmod></url>
   <url>
     <loc>https://dwellmin.online/conference.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <image:image><image:loc>https://dwellmin.online/assets/dwell-conference-logo-beige.webp</image:loc><image:title>Dwell Ministries Conference 2027</image:title></image:image>
   </url>
-  <url>
-    <loc>https://dwellmin.online/connect.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
-  <url>
-    <loc>https://dwellmin.online/privacy.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
-  <url>
-    <loc>https://dwellmin.online/accessibility.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
-  <url>
-    <loc>https://dwellmin.online/safeguarding.html</loc>
-    <lastmod>2026-11-18</lastmod>
-  </url>
+  <url><loc>https://dwellmin.online/connect.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://dwellmin.online/privacy.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://dwellmin.online/accessibility.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://dwellmin.online/safeguarding.html</loc><lastmod>2026-11-18</lastmod></url>
 </urlset>
