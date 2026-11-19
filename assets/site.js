@@ -86,10 +86,13 @@
   settingsButton.className = 'privacy-choices-button';
   settingsButton.textContent = 'Privacy choices';
   settingsButton.setAttribute('aria-haspopup', 'dialog');
+  settingsButton.setAttribute('aria-controls', 'analytics-consent-dialog');
 
   const consentPanel = document.createElement('section');
+  consentPanel.id = 'analytics-consent-dialog';
   consentPanel.className = 'analytics-consent';
   consentPanel.setAttribute('role', 'dialog');
+  consentPanel.setAttribute('aria-modal', 'true');
   consentPanel.setAttribute('aria-labelledby', 'analytics-consent-title');
   consentPanel.setAttribute('aria-describedby', 'analytics-consent-description');
   consentPanel.innerHTML = `
@@ -101,6 +104,10 @@
     </div>
   `;
 
+  const getFocusableElements = () => [...consentPanel.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter(element => !element.hidden && element.getAttribute('aria-hidden') !== 'true');
+
   const openPanel = () => {
     lastFocusedElement = document.activeElement;
     consentPanel.hidden = false;
@@ -111,7 +118,10 @@
   const closePanel = () => {
     consentPanel.hidden = true;
     settingsButton.hidden = false;
-    if (lastFocusedElement && document.contains(lastFocusedElement)) lastFocusedElement.focus();
+    const focusTarget = lastFocusedElement && document.contains(lastFocusedElement)
+      ? lastFocusedElement
+      : settingsButton;
+    focusTarget.focus();
   };
 
   addStyles();
@@ -128,7 +138,28 @@
     closePanel();
   });
   consentPanel.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && localStorage.getItem(consentKey)) closePanel();
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closePanel();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const focusable = getFocusableElements();
+    if (!focusable.length) {
+      event.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 
   const consent = localStorage.getItem(consentKey);
