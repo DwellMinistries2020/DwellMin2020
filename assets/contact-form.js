@@ -6,6 +6,10 @@
   const phone = form.querySelector('#request-phone');
   const preferred = form.querySelector('#preferred-contact');
   const status = document.getElementById('form-status');
+  const started = form.querySelector('#form-started');
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  if (started) started.value = String(Date.now());
 
   const clearContactErrors = () => {
     email.setCustomValidity('');
@@ -17,7 +21,6 @@
   preferred.addEventListener('change', clearContactErrors);
 
   form.addEventListener('submit', event => {
-    event.preventDefault();
     clearContactErrors();
 
     if (preferred.value === 'Reply by email' && !email.value.trim()) {
@@ -31,30 +34,15 @@
     }
 
     if (!form.reportValidity()) {
+      event.preventDefault();
       status.textContent = 'Please review the required information above.';
       return;
     }
 
-    const data = new FormData(form);
-    const requestType = data.get('request_type');
-    const name = data.get('name')?.trim() || 'Anonymous';
-    const subject = 'Dwell Ministries Website - ' + requestType;
-    const lines = [
-      'Dwell Ministries website request',
-      '',
-      'Request type: ' + requestType,
-      'Name: ' + name,
-      'Email: ' + (data.get('email')?.trim() || 'Not provided'),
-      'Phone: ' + (data.get('phone')?.trim() || 'Not provided'),
-      'Response preference: ' + data.get('preferred_contact'),
-      'Prayer-sharing preference: ' + data.get('sharing_permission'),
-      '',
-      'Message or prayer request:',
-      data.get('message')?.trim() || ''
-    ];
-
-    status.textContent = 'Your email application should open with the request ready. Review the message, then press Send.';
-    window.location.href = 'mailto:dwellministries2020@gmail.com?subject=' +
-      encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    status.textContent = 'Sending your request securely…';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+    }
   });
 })();
